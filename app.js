@@ -7,6 +7,7 @@ const DiscordConfig = require('./auth/discordauth.json')
 const MemberChange = require('./util/discord/memberchange.js');
 
 const LogMessage = require('./util/log/log.js');
+const Help = require('./util/bot/help.js')
 
 // Dicord Client setup
 const client = new Discord.Client();
@@ -30,4 +31,18 @@ client.on("guildMemberRemove", member => {
 
 client.on("message", message => {
     LogMessage.log(message)
+
+    if (message.author.bot) return;
+    var prefix = "=";
+    var content = message.content.substring(prefix.length).split(" ");
+    if (message.channel.id == '377128931414769666' && !message.member.roles.has('404402578449891328')) return;
+    if (!message.content.startsWith(prefix)) return;
+    
+    switch (content[0].toLowerCase()) {
+        case "help":
+        Help.help(message);
+        break;
+        default:
+        message.reply("That command does not exist.")
+    }
 })

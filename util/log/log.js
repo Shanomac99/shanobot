@@ -13,7 +13,7 @@ const Gdoc = new GoogleSpreadsheet(GoogleAccess.logsheet);
 
 module.exports = {
     log: function (message) {
-        if (message.content.startsWith("=")) message.content = " " + message.content;
+        if (message.content.startsWith("=")) var messagecontent = " " + message.content;
 
         AttachCheck.attachcheck(message, function (attachment, embed) {
         
@@ -23,7 +23,7 @@ module.exports = {
             channel : message.channel.name,
             date : new Date(),
             embed: embed,
-            message : message.content,
+            message : messagecontent,
             username: message.author.username,
             userid : message.member.id
             };
