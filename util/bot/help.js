@@ -6,10 +6,9 @@ const Embed = require("../generalfunctions/embed.js")
 module.exports = {
     help: function(message) {
     Embed.embed(message, function (embed) {
-        console.log("1")
         var embed = embed
-        .addField("=help", "Displays this help message");
-
+        .addField("=help", "Displays this help message")
+        .addField("Commands", "More detailed info here: https://bit.ly/2lfDAMi");
         message.channel.send({ embed });
     });
     }

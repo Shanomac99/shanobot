@@ -1,5 +1,5 @@
 
-const configfile = "../config/config.json";
+const configfile = require("../../config/config.json");
 
 module.exports ={
 onjoin: function (member) {

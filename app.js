@@ -18,7 +18,7 @@ client.login(DiscordConfig.token);
 // Client Readyup
 client.on("ready", () => {
  console.log("Shanobot startup");
- client.user.setActivity("Use =help");
+ client.user.setActivity("Use =help | Crippled");
 });
 
 client.on("guildMemberAdd", member => {
