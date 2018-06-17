@@ -2,3 +2,4 @@
  - Memberchange
     - when a member leaves make it so their currency data gets removed
  - Add Data Policy
+ - Add github detection (Bot will auto restart and send a message dispalying update)

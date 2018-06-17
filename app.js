@@ -2,12 +2,13 @@
 
 // Requirements for this file
 const Discord = require('discord.js');
-const DiscordConfig = require('./auth/discordauth.json')
+const DiscordConfig = require('./auth/discordauth.json');
 
 const MemberChange = require('./util/discord/memberchange.js');
 
 const LogMessage = require('./util/log/log.js');
-const Help = require('./util/bot/help.js')
+const Help = require('./util/bot/help.js');
+const InfoCommands = require('./util/commands/infocommands.js');
 
 // Dicord Client setup
 const client = new Discord.Client();
@@ -41,6 +42,12 @@ client.on("message", message => {
     switch (content[0].toLowerCase()) {
         case "help":
         Help.help(message);
+        break;
+    case "changelog":
+        InfoCommands.changelog(message);
+        break;
+        case "info":
+        InfoCommands.info(message, client);
         break;
         default:
         message.reply("That command does not exist.")
