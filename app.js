@@ -9,6 +9,10 @@ const MemberChange = require('./util/discord/memberchange.js');
 const LogMessage = require('./util/log/log.js');
 const Help = require('./util/bot/help.js');
 const InfoCommands = require('./util/commands/infocommands.js');
+const AdminCommands = require('./util/commands/admincommands.js');
+
+const AdminCheck = require("./util/generalfunctions/admincheck.js");
+const Config = require("../../config/config.json");
 
 // Dicord Client setup
 const client = new Discord.Client();
@@ -43,11 +47,20 @@ client.on("message", message => {
         case "help":
         Help.help(message);
         break;
-    case "changelog":
+        case "changelog":
         InfoCommands.changelog(message);
         break;
         case "info":
         InfoCommands.info(message, client);
+        break;
+        case "purge":
+        AdminCommands.purge(message, content)
+        break;
+        case "admincommands":
+          AdminCheck.admincheck(message, function(perms) {
+              if(perms === false) return message.reply(Config.messages.general.deny);
+              Help.admincommands(message);
+          })
         break;
         default:
         message.reply("That command does not exist.")
