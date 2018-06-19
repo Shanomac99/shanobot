@@ -13,7 +13,8 @@ const Gdoc = new GoogleSpreadsheet(GoogleAccess.logsheet);
 
 module.exports = {
     log: function (message) {
-        if (message.content.startsWith("=")) var messagecontent = " " + message.content;
+        var messagecontent = message.content
+        if (message.content.startsWith("=")) messagecontent = " " + message.content;
 
         AttachCheck.attachcheck(message, function (attachment, embed) {
         
@@ -27,7 +28,6 @@ module.exports = {
             username: message.author.username,
             userid : message.member.id
             };
-
             SSCheck.sscheck(messageinput, function(sheetsid) {
             // If the log is above 2000 rows it moves it to old and creates a new one
             SSLengthCheck.sslengthcheck(messageinput, sheetsid, function (sheetsid){
