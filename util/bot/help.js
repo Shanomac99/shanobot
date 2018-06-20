@@ -10,7 +10,9 @@ module.exports = {
         .addField("=help", "Displays this help message")
         .addField("=info", "Displays info on the bot")
         .addField("=changelog", "Displays the changelog")
-        .addField("Commands", "More detailed info here: https://bit.ly/2lfDAMi");
+        .addField("=bal", "Check your bal")
+        .addField("=balof", "Check the bal of someone else")
+        .addField("Commands/Usage", "More detailed info here: https://bit.ly/2lfDAMi");
         message.channel.send({ embed });
     });
     },
@@ -18,7 +20,7 @@ module.exports = {
         Embed.embed(message, function(embed) {
             embed = embed
             .addField("=purge", "Purges # of messages")
-            .addField("Commands", "More detailed info here: https://bit.ly/2lfDAMi");
+            .addField("Commands/Usage", "More detailed info here: https://bit.ly/2lfDAMi");
             message.channel.send({ embed });
         })
     }

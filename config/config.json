@@ -10,7 +10,8 @@
     },
     "messages": {
         "general": {
-            "deny": "You do not have permission to do that."
+            "deny": "You do not have permission to do that.",
+            "nomention": "Make sure you mention a member"
         },
         "num": {
           "nonum": "Make sure you provide a number",
