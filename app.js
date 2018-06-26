@@ -13,8 +13,9 @@ const AdminCommands = require('./util/commands/admincommands.js');
 
 const AdminCheck = require('./util/generalfunctions/admincheck.js');
 const Config = require('./config/config.json');
-const Talk = require('./util/currency/talk.js')
+const Talk = require('./util/currency/talk.js');
 const Bal = require('./util/commands/bal.js');
+const Baltop = require('./util/commands/topbal.js');
 
 // Dicord Client setup
 const client = new Discord.Client();
@@ -70,6 +71,10 @@ client.on("message", message => {
             break;
             case "balof":
             Bal.balof(message);
+            break;
+            case "baltop":
+            case "topbal":
+            Baltop.topbal(message)
             break;
             default:
             message.reply("That command does not exist.")
