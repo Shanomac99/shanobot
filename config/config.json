@@ -17,7 +17,9 @@
           "nonum": "Make sure you provide a number",
           "badnum": "Make sure you provide a valid number, check the command usage for help",
           "negnum": "Make sure the number is positive",
-          "zeronum": "Make sure the number is not zero"
+          "zeronum": "Make sure the number is not zero",
+          "lowbal": "You don't have the money to do that",
+          "bot": "You can't give money to the bot"
         },
         "purge": {
             "toohigh": "You can only have a max number of 99. 99 Messages have been purged",

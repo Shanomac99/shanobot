@@ -12,6 +12,8 @@ module.exports = {
         .addField("=changelog", "Displays the changelog")
         .addField("=bal", "Check your bal")
         .addField("=balof", "Check the bal of someone else")
+        .addField("=baltop", "Shows top 10 users balance")
+        .addField("=give", "Gives money to a user")
         .addField("Commands/Usage", "More detailed info here: https://bit.ly/2lfDAMi");
         message.channel.send({ embed });
     });
