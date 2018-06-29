@@ -79,6 +79,9 @@ client.on("message", message => {
             case "topbal":
             Baltop.topbal(message)
             break;
+            case "ecogive":
+            Give.ecogive(message, content);
+            break;
             default:
             message.reply("That command does not exist.")
         }
