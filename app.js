@@ -17,6 +17,7 @@ const Talk = require('./util/currency/talk.js');
 const Bal = require('./util/commands/bal.js');
 const Baltop = require('./util/commands/topbal.js');
 const Give = require("./util/commands/give.js");
+const Stats = require("./util/commands/stats.js")
 // Dicord Client setup
 const client = new Discord.Client();
 
@@ -68,6 +69,12 @@ client.on("message", message => {
             break;
             case "bal":
             Bal.bal(message);
+            break;
+            case "stats":
+            Stats.stats(message);
+            break;
+            case "statsof":
+            Stats.statsof(message);
             break;
             case "give":
             Give.give(message, content)

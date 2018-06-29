@@ -14,7 +14,7 @@ const Admincheck = require("../generalfunctions/admincheck.js")
 module.exports = { 
     give: function(message, args) {
         if (message.mentions.members.first() === undefined) return message.reply(Config.messages.general.nomention);
-        if (message.mentions.members.first().bot) return message.reply(config.messages.num.bot);
+        if (message.mentions.members.first().user.bot) return message.reply(Config.messages.num.bot);
         Numcheck.numcheck(message, args[1], 1, function(success) {
             if (success === false) return;
             Ssaccess.ssaccess(message, message.member.id, function(newuser, rows) {
@@ -51,7 +51,7 @@ module.exports = {
     },
     ecogive: function(message, args) {
         if (message.mentions.members.first() === undefined) return message.reply(Config.messages.general.nomention);
-        if (message.mentions.members.first().bot) return message.reply(config.messages.num.bot);
+        if (message.mentions.members.first().user.bot) return message.reply(Config.messages.num.bot);
         Admincheck.admincheck(message, function(perms) {
             if (perms === false) return;
         Numcheck.numcheck(message, args[1], 0, function(success) {
