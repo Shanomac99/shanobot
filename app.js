@@ -18,6 +18,7 @@ const Bal = require('./util/commands/bal.js');
 const Baltop = require('./util/commands/topbal.js');
 const Give = require("./util/commands/give.js");
 const Stats = require("./util/commands/stats.js")
+const Gamble = require("./util/commands/gamble.js")
 // Dicord Client setup
 const client = new Discord.Client();
 
@@ -88,6 +89,9 @@ client.on("message", message => {
             break;
             case "ecogive":
             Give.ecogive(message, content);
+            break;
+            case "gamble":
+            Gamble.gamble(message, content)
             break;
             default:
             message.reply("That command does not exist.")

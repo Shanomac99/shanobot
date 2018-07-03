@@ -14,6 +14,9 @@ module.exports = {
         .addField("=balof", "Check the bal of someone else")
         .addField("=baltop", "Shows top 10 users balance")
         .addField("=give", "Gives money to a user")
+        .addField("=stats", "Gives your stats")
+        .addField("=statsof", "Gives stats of another user")
+        .addField("=gamble", "Gamble money, 50/50 chance")
         .addField("Commands/Usage", "More detailed info here: https://bit.ly/2lfDAMi");
         message.channel.send({ embed });
     });
