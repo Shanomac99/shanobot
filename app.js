@@ -17,8 +17,9 @@ const Talk = require('./util/currency/talk.js');
 const Bal = require('./util/commands/bal.js');
 const Baltop = require('./util/commands/topbal.js');
 const Give = require("./util/commands/give.js");
-const Stats = require("./util/commands/stats.js")
-const Gamble = require("./util/commands/gamble.js")
+const Stats = require("./util/commands/stats.js");
+const Gamble = require("./util/commands/gamble.js");
+const tts = require('./util/voice/voiceconnect.js');
 // Dicord Client setup
 const client = new Discord.Client();
 
@@ -50,6 +51,9 @@ client.on("message", message => {
         if (!message.content.startsWith(prefix)) return;
     
         switch (content[0].toLowerCase()) {
+            case "test":
+            tts.voiceconnect(message);
+            break
             case "help":
             Help.help(message);
             break;
