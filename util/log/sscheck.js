@@ -29,6 +29,7 @@ module.exports = {
                 },
                 // Take the data from the query and step
                     function(err, obtainedrows) {
+                        if (err) console.log(err)
                         rows = obtainedrows;
                         step();
                     }
@@ -37,6 +38,7 @@ module.exports = {
 
             function checkrows(step) {
                 // Check if the row exists
+                if (rows === undefined) step();
                 if (rows[0] === undefined) {
                     // If not then go to next step
                     step();

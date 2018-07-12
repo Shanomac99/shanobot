@@ -2,9 +2,28 @@
     "id": {
         "memberalertid": "377128931414769666",
         "joinrole": "397901598782652426",
-        "rulechannelid": "377161484435849216"
+        "rulechannelid": "377161484435849216",
+        "botpermid": "404402578449891328"
     },
     "serverdetails": {
         "servername": "Tubey Dudes Discord"
+    },
+    "messages": {
+        "general": {
+            "deny": "You do not have permission to do that.",
+            "nomention": "Make sure you mention a member"
+        },
+        "num": {
+          "nonum": "Make sure you provide a number",
+          "badnum": "Make sure you provide a valid number, check the command usage for help",
+          "negnum": "Make sure the number is positive",
+          "zeronum": "Make sure the number is not zero",
+          "lowbal": "You don't have the money to do that",
+          "bot": "You use this command with a bot"
+        },
+        "purge": {
+            "toohigh": "You can only have a max number of 99. 99 Messages have been purged",
+            "purge": " messages have been purged"
+        }
     }
 }
