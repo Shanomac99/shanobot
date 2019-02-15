@@ -1,24 +1,15 @@
 // File is used to listen to discord for messages
 
+const util = require("./util");
 // Requirements for this file
 const Discord = require('discord.js');
 const DiscordConfig = require('./auth/discordauth.json');
 
 const MemberChange = require('./util/discord/memberchange.js');
 
-const LogMessage = require('./util/log/log.js');
-const Help = require('./util/bot/help.js');
-const InfoCommands = require('./util/commands/infocommands.js');
-const AdminCommands = require('./util/commands/admincommands.js');
 
-const AdminCheck = require('./util/generalfunctions/admincheck.js');
 const Config = require('./config/config.json');
-const Talk = require('./util/currency/talk.js');
-const Bal = require('./util/commands/bal.js');
-const Baltop = require('./util/commands/topbal.js');
-const Give = require("./util/commands/give.js");
-const Stats = require("./util/commands/stats.js")
-const Gamble = require("./util/commands/gamble.js")
+
 // Dicord Client setup
 const client = new Discord.Client();
 
@@ -40,8 +31,8 @@ client.on("guildMemberRemove", member => {
 });
 
 client.on("message", message => {
-    Talk.talk(message, function() {
-        LogMessage.log(message)
+    util.currency.talk.talk(message, function() {
+        util.log.log.log(message)
 
         if (message.author.bot) return;
         var prefix = "=";
@@ -51,47 +42,47 @@ client.on("message", message => {
     
         switch (content[0].toLowerCase()) {
             case "help":
-            Help.help(message);
+            util.bot.help.help(message);
             break;
             case "changelog":
-            InfoCommands.changelog(message);
+            util.commands.infocommands.changelog(message);
             break;
             case "info":
-            InfoCommands.info(message, client);
+            util.commands.infocommands.info(message, client);
             break;
             case "purge":
-            AdminCommands.purge(message, content)
+            util.commands.admincommands.purge(message, content)
             break;
             case "admincommands":
-              AdminCheck.admincheck(message, function(perms) {
+              util.generalfunctions.admincheck(message, function(perms) {
                   if(perms === false) return message.reply(Config.messages.general.deny);
-               Help.admincommands(message);
+               util.bot.help.admincommands(message);
             })
             break;
             case "bal":
-            Bal.bal(message);
+            util.commands.bal.bal(message);
             break;
             case "stats":
-            Stats.stats(message);
+            util.commands.stats.stats(message);
             break;
             case "statsof":
-            Stats.statsof(message);
+            util.commands.stats.statsof(message);
             break;
             case "give":
-            Give.give(message, content)
+            util.commands.give.give(message, content)
             break;
             case "balof":
-            Bal.balof(message);
+            util.commands.bal.balof(message);
             break;
             case "baltop":
             case "topbal":
-            Baltop.topbal(message)
+            util.commands.topbal.topbal(message)
             break;
             case "ecogive":
-            Give.ecogive(message, content);
+            util.commands.give.ecogive(message, content);
             break;
             case "gamble":
-            Gamble.gamble(message, content)
+            util.commands.gamble.gamble(message, content)
             break;
             default:
             message.reply("That command does not exist.")
