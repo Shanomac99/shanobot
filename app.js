@@ -37,7 +37,8 @@ client.on("message", message => {
         if (message.author.bot) return;
         var prefix = "=";
         var content = message.content.substring(prefix.length).split(" ");
-        if (message.channel.id == '377128931414769666' && !message.member.roles.has('404402578449891328')) return;
+        util.discord.guildcatch.findguild(message.guild.id, function(guild){
+        if (util.discord.channelblock.checkBlocked(guild, message.channel.id)) return;
         if (!message.content.startsWith(prefix)) return;
     
         switch (content[0].toLowerCase()) {
@@ -54,7 +55,7 @@ client.on("message", message => {
             util.commands.admincommands.purge(message, content)
             break;
             case "admincommands":
-              util.generalfunctions.admincheck(message, function(perms) {
+              util.generalfunctions.admincheck.admincheck(message, function(perms) {
                   if(perms === false) return message.reply(Config.messages.general.deny);
                util.bot.help.admincommands(message);
             })
@@ -88,4 +89,5 @@ client.on("message", message => {
             message.reply("That command does not exist.")
         }
     })
+    });
 })

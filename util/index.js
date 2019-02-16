@@ -26,6 +26,8 @@ exports.currency.talk = require("./currency/talk.js");
 // Discord
 exports.discord = {};
 exports.discord.memberchange = require("./discord/memberchange.js");
+exports.discord.guildcatch = require("./discord/guildcatch.js");
+exports.discord.channelblock = require("./discord/channelblock.js");
 
 // General Functions
 exports.generalfunctions = {};

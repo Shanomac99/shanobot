@@ -25,6 +25,7 @@ module.exports = {
         Embed.embed(message, function(embed) {
             embed = embed
             .addField("=purge", "Purges # of messages")
+            .addField("=ecogive","Creates money for a user")
             .addField("Commands/Usage", "More detailed info here: https://bit.ly/2lfDAMi");
             message.channel.send({ embed });
         })
